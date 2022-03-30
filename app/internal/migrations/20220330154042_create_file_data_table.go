@@ -10,14 +10,16 @@ func init() {
 }
 
 func upCreateNewDataTable(tx *sql.Tx) error {
-	tx.Exec("CREATE TABLE `file_data` (" +
-		"id int not null," +
-		"file_name varchar(255) NOT NULL," +
-		"extension varchar(4) NOT NULL," +
-		"`data` text NOT NULL," +
-		"parsing_date  timestamp NOT NULL," +
-		"PRIMARY KEY (id)" +
-		")")
+	tx.Exec(
+		"CREATE TABLE `file_data` (" +
+			"id int not null," +
+			"file_name varchar(255) NOT NULL," +
+			"extension varchar(4) NOT NULL," +
+			"`data` text NOT NULL," +
+			"parsing_date  timestamp NOT NULL," +
+			"PRIMARY KEY (id)" +
+			")",
+	)
 	return nil
 }
 
