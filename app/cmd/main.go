@@ -3,12 +3,17 @@ package main
 import (
 	"database/sql"
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/joho/godotenv"
+	"os"
 	"time"
 )
 
 var pool *sql.DB // Database connection pool.
 
 func init() {
+	if err := godotenv.Load(); err != nil {
+		panic("Can not load environment vars")
+	}
 	prepareDb()
 }
 
@@ -23,7 +28,10 @@ func main() {
 
 func prepareDb() {
 	var err error
-	pool, err = sql.Open("mysql", "groot:parser@tcp(mysql:3306)/parser")
+	driver := os.Getenv("DRIVER")
+	dsName := os.Getenv("DATA_SOURCE_NAME")
+
+	pool, err = sql.Open(driver, dsName)
 	if err != nil {
 		panic(err)
 	}
