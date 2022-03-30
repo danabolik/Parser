@@ -1,0 +1,23 @@
+version: "3.7"
+
+services:
+  app:
+    build: ./build/app
+    restart: always
+    working_dir: /app
+    volumes:
+      - ./app:/app/
+    depends_on:
+      - mysql
+  mysql:
+    build: ./build/mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    expose:
+      - '3306'
+    environment:
+      MYSQL_HOST: ${MYSQL_HOST}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
