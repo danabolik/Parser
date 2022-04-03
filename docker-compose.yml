@@ -8,9 +8,9 @@ services:
     volumes:
       - ./app:/app/
     depends_on:
-      - mysql
-  mysql:
-    build: ./build/mysql
+      - db
+  db:
+    build: build/db
     restart: always
     ports:
       - "3306:3306"
@@ -20,4 +20,4 @@ services:
       MYSQL_HOST: ${MYSQL_HOST}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
