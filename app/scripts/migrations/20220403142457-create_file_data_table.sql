@@ -5,7 +5,7 @@ CREATE TABLE file_data (
     file_name varchar(255) NOT NULL,
     extension varchar(4) NOT NULL,
     `data` text NOT NULL,
-    parsing_date  timestamp NOT NULL,
+    parsing_date_time  timestamp NOT NULL,
     PRIMARY KEY (id)
 );
 

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"Parser/internal/parser"
 	"database/sql"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/joho/godotenv"
@@ -38,4 +39,6 @@ func prepareDb() {
 	pool.SetConnMaxLifetime(time.Minute * 3)
 	pool.SetMaxIdleConns(3)
 	pool.SetMaxOpenConns(3)
+
+	parser.Parse()
 }
