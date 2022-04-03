@@ -1,4 +1,0 @@
-development:
-  dialect: mysql
-  datasource: groot:gpass@tcp(localhost:3306)/parser?parseTime=true
-  dir: scripts/migrations
