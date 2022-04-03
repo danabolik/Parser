@@ -9,9 +9,6 @@ services:
       - ./app:/app/
     depends_on:
       - mysql
-    environment:
-      GOOSE_DRIVER: ${GOOSE_DRIVER}
-      GOOSE_DBSTRING: ${GOOSE_DBSTRING}
   mysql:
     build: ./build/mysql
     restart: always
